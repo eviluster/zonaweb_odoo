@@ -1,0 +1,92 @@
+// Variables SCSS para mejor mantenibilidad
+ $primary-color: #00539F;
+ $secondary-color: #003d75;
+ $accent-color: #00A3E0;
+ $text-dark: #333;
+ $text-light: #777;
+ $bg-light: #f8f9fa;
+ $bg-white: #ffffff;
+ $shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+ $shadow-hover: 0 10px 25px rgba(0, 0, 0, 0.1);
+
+// Mixins para estilos reutilizables
+@mixin card-style {
+    background-color: $bg-white;
+    border-radius: 15px;
+    box-shadow: $shadow;
+    transition: all 0.3s;
+    
+    &:hover {
+        transform: translateY(-10px);
+        box-shadow: $shadow-hover;
+    }
+}
+
+@mixin button-style($bg-color, $text-color) {
+    display: inline-block;
+    background-color: $bg-color;
+    color: $text-color;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s;
+    
+    &:hover {
+        transform: translateY(-3px);
+        color: $text-color;
+    }
+}
+
+// Importar estilos CSS existentes
+@import '../css/zonaweb_style.css';
+
+// Estilos adicionales con SCSS
+.hero-section {
+    background: linear-gradient(135deg, $primary-color 0%, $secondary-color 100%);
+    
+    .carousel-slide {
+        img {
+            transition: transform 0.5s ease;
+        }
+    }
+}
+
+.service-card {
+    @include card-style;
+    
+    .service-icon {
+        background-color: $primary-color;
+    }
+}
+
+.plan-card {
+    @include card-style;
+    
+    .plan-button {
+        @include button-style($primary-color, white);
+        
+        &:hover {
+            background-color: $secondary-color;
+        }
+    }
+}
+
+// Responsive con SCSS
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .form-row {
+        display: block;
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+    }
+}
