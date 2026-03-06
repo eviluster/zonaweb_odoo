@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Datos de demostración para licitaciones -->
+        <record id="demo_bidding_request_1" model="zonaweb.bidding.request">
+            <field name="name">BID/00001</field>
+            <field name="company_name">Empresa Demo S.A.</field>
+            <field name="contact_name">Juan Pérez</field>
+            <field name="email">juan.perez@empresademo.com</field>
+            <field name="phone">+34 600 123 456</field>
+            <field name="service_type">software</field>
+            <field name="project_description">Desarrollo de un sistema de gestión empresarial integral que incluya módulos de contabilidad, inventario y recursos humanos.</field>
+            <field name="specific_requirements">El sistema debe ser multiusuario, con diferentes niveles de acceso y reportes en tiempo real.</field>
+            <field name="estimated_budget">15000</field>
+            <field name="estimated_timeline">normal</field>
+            <field name="company_sector">retail</field>
+            <field name="state">confirmed</field>
+        </record>
+
+        <record id="demo_bidding_request_2" model="zonaweb.bidding.request">
+            <field name="name">BID/00002</field>
+            <field name="company_name">Tech Solutions Ltd.</field>
+            <field name="contact_name">María García</field>
+            <field name="email">maria.garcia@techsolutions.com</field>
+            <field name="phone">+34 600 987 654</field>
+            <field name="service_type">infrastructure</field>
+            <field name="project_description">Diseño e implementación de infraestructura de red para nueva oficina con 50 empleados.</field>
+            <field name="specific_requirements">Incluir cableado estructurado, puntos de acceso WiFi, firewall y sistemas de backup.</field>
+            <field name="estimated_budget">8000</field>
+            <field name="estimated_timeline">urgent</field>
+            <field name="company_sector">technology</field>
+            <field name="state">approved</field>
+        </record>
+
+        <record id="demo_bidding_request_3" model="zonaweb.bidding.request">
+            <field name="name">BID/00003</field>
+            <field name="company_name">Clínica Salud Plus</field>
+            <field name="contact_name">Dr. Carlos Rodríguez</field>
+            <field name="email">carlos.rodriguez@saludplus.com</field>
+            <field name="phone">+34 600 555 777</field>
+            <field name="service_type">security</field>
+            <field name="project_description">Implementación de sistema de seguridad informática y protección de datos de pacientes.</field>
+            <field name="specific_requirements">Cumplimiento de normativa GDPR, cifrado de datos, auditorías de seguridad periódicas.</field>
+            <field name="estimated_budget">12000</field>
+            <field name="estimated_timeline">flexible</field>
+            <field name="company_sector">healthcare</field>
+            <field name="state">draft</field>
+        </record>
+    </data>
+</odoo>

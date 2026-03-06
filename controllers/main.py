@@ -17,17 +17,17 @@ class ZonawebWebsite(http.Controller):
     @http.route('/services', type='http', auth='public', website=True)
     def services(self, **kwargs):
         """Página de servicios"""
-        return request.render('zonaweb_website.services_page')
+        return request.render('zonaweb_website.zonaweb_homepage')
     
     @http.route('/portfolio', type='http', auth='public', website=True)
     def portfolio(self, **kwargs):
         """Página de portafolio"""
-        return request.render('zonaweb_website.portfolio_page')
+        return request.render('zonaweb_website.zonaweb_homepage')
     
     @http.route('/about', type='http', auth='public', website=True)
     def about(self, **kwargs):
         """Página sobre nosotros"""
-        return request.render('zonaweb_website.about_page')
+        return request.render('zonaweb_website.zonaweb_homepage')
     
     @http.route('/licencias', type='http', auth='public', website=True)
     def bidding(self, **kwargs):
