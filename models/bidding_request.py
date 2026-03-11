@@ -53,9 +53,11 @@ class BiddingRequest(models.Model):
     estimated_budget = fields.Float(
         string='Presupuesto Estimado'
     )
-    estimated_timeline = fields.Char(
-        string='Cronograma Estimado'
-    )
+    estimated_timeline = fields.Selection([
+        ('flexible', 'Flexible'),
+        ('normal', 'Normal'),
+        ('urgent', 'Urgente'),
+    ], string='Cronograma Estimado')
     company_sector = fields.Selection([
         ('retail', 'Retail'),
         ('manufacturing', 'Manufactura'),
@@ -77,7 +79,7 @@ class BiddingRequest(models.Model):
     def create(self, vals_list):
         for vals in vals_list:
             if vals.get('name', _('Nuevo')) == _('Nuevo'):
-                vals['name'] = self.env['ir.sequence'].next_by_code('zonaweb.bidding.request') or _('Nuevo')
+                vals['name'] = self.env['ir.sequence'].next_by_code('zonaweb.bidding.request')
         return super().create(vals_list)
 
     def action_confirm(self):
