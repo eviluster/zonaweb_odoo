@@ -24,9 +24,9 @@
             <field name="arch" type="xml">
                 <form string="Solicitud de Licitación">
                     <header>
-                        <button name="action_confirm" type="object" string="Confirmar" class="btn-primary" states="draft"/>
-                        <button name="action_approve" type="object" string="Aprobar" class="btn-success" states="confirmed"/>
-                        <button name="action_reject" type="object" string="Rechazar" class="btn-danger" states="draft,confirmed"/>
+                        <button name="action_confirm" type="object" string="Confirmar" class="btn-primary" invisible="state != 'draft'"/>
+                        <button name="action_approve" type="object" string="Aprobar" class="btn-success" invisible="state != 'confirmed'"/>
+                        <button name="action_reject" type="object" string="Rechazar" class="btn-danger" invisible="state not in ['draft', 'confirmed']"/>
                         <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,approved,rejected"/>
                     </header>
                     <sheet>
