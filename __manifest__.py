@@ -4,7 +4,7 @@
     'version': '18.0.1.0.0',
     'category': 'Website',
     'summary': 'Plantilla de sitio web para Zonaweb con sistema de licitaciones',
-    'description': """
+    'description': '''
 Zonaweb Website Template
 ========================
 
@@ -25,7 +25,7 @@ Características principales:
 - Sistema de licitaciones integrado
 - Fácil de personalizar
 - Compatible con Odoo 18
-    """,
+    ''',
     'author': 'Zonaweb',
     'website': 'https://www.zonaweb.com',
     'license': 'LGPL-3',
