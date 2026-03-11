@@ -27,7 +27,7 @@ class BiddingRequest(models.Model):
         required=True,
         tracking=True
     )
-    email = fields.Email(
+    email = fields.Char(
         string='Correo Electrónico',
         required=True,
         tracking=True
