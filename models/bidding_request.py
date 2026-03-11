@@ -53,9 +53,11 @@ class BiddingRequest(models.Model):
     estimated_budget = fields.Float(
         string='Presupuesto Estimado'
     )
-    estimated_timeline = fields.Char(
-        string='Cronograma Estimado'
-    )
+    estimated_timeline = fields.Selection([
+        ('normal', 'Normal (2-4 semanas)'),
+        ('urgent', 'Urgente (1-2 semanas)'),
+        ('flexible', 'Flexible (1-3 meses)'),
+    ], string='Cronograma Estimado')
     company_sector = fields.Selection([
         ('retail', 'Retail'),
         ('manufacturing', 'Manufactura'),
@@ -91,3 +93,9 @@ class BiddingRequest(models.Model):
     def action_reject(self):
         self.write({'state': 'rejected'})
         return True
+
+    company_id = fields.Many2one(
+        'res.company',
+        string='Compañía',
+        default=lambda self: self.env.company
+    )

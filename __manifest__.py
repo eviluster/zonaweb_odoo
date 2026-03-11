@@ -23,11 +23,11 @@
     ],
     'assets': {
         'web.assets_frontend': [
-            'workspace/static/src/css/zonaweb_style.css',
-            'workspace/static/src/js/zonaweb_script.js',
+            'zonaweb_website/static/src/css/zonaweb_style.css',
+            'zonaweb_website/static/src/js/zonaweb_script.js',
         ],
         'web.assets_backend': [
-            'workspace/static/src/js/zonaweb_script.js',
+            'zonaweb_website/static/src/js/zonaweb_script.js',
         ],
     },
     'demo': [
