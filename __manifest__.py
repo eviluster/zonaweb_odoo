@@ -4,7 +4,6 @@
     'version': '18.0.1.0.0',
     'category': 'Website',
     'summary': 'Plantilla de sitio web para Zonaweb con sistema de licitaciones',
-    'description': 'Plantilla completa de sitio web con sistema de licitaciones. Incluye página de inicio con carrusel, sección de servicios y portafolio, sistema de licitaciones integrado, formulario de contacto y diseño responsive compatible con Odoo 18.',
     'author': 'Zonaweb',
     'website': 'https://www.zonaweb.com',
     'license': 'LGPL-3',
