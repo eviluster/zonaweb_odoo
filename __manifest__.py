@@ -4,28 +4,6 @@
     'version': '18.0.1.0.0',
     'category': 'Website',
     'summary': 'Plantilla de sitio web para Zonaweb con sistema de licitaciones',
-    'description': '''
-Zonaweb Website Template
-========================
-
-Una plantilla completa de sitio web para la empresa Zonaweb que incluye:
-
-* Página de inicio con carrusel de imágenes
-* Sección de servicios
-* Portafolio de proyectos
-* Planes de servicios
-* Sistema de licitaciones
-* Formulario de contacto
-* Diseño responsive y moderno
-
-Características principales:
----------------------------
-- Diseño profesional y moderno
-- Totalmente responsive
-- Sistema de licitaciones integrado
-- Fácil de personalizar
-- Compatible con Odoo 18
-    ''',
     'author': 'Zonaweb',
     'website': 'https://www.zonaweb.com',
     'license': 'LGPL-3',
