@@ -11,6 +11,7 @@
         'website',
         'website_sale',
         'mail',
+        'sale_management',
     ],
     'data': [
         'security/ir.model.access.csv',
@@ -22,11 +23,11 @@
     ],
     'assets': {
         'web.assets_frontend': [
-            'zonaweb_website/static/src/css/zonaweb_style.css',
-            'zonaweb_website/static/src/js/zonaweb_script.js',
+            'zonaweb_website_odoo18/static/src/css/zonaweb_style.css',
+            'zonaweb_website_odoo18/static/src/js/zonaweb_script.js',
         ],
         'web.assets_backend': [
-            'zonaweb_website/static/src/js/zonaweb_script.js',
+            'zonaweb_website_odoo18/static/src/js/zonaweb_script.js',
         ],
     },
     'demo': [
