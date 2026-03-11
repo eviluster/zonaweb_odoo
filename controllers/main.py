@@ -39,6 +39,7 @@ class ZonawebWebsite(http.Controller):
         """Procesar formulario de licitación"""
         try:
             # Crear registro de solicitud de licitación
+            estimated_budget = kwargs.get('estimated_budget')
             bidding_request = request.env['zonaweb.bidding.request'].sudo().create({
                 'company_name': kwargs.get('company_name'),
                 'contact_name': kwargs.get('contact_name'),
@@ -46,7 +47,7 @@ class ZonawebWebsite(http.Controller):
                 'phone': kwargs.get('phone'),
                 'service_type': kwargs.get('service_type'),
                 'project_description': kwargs.get('project_description'),
-                'estimated_budget': kwargs.get('estimated_budget'),
+                'estimated_budget': float(estimated_budget) if estimated_budget else 0.0,
                 'estimated_timeline': kwargs.get('estimated_timeline'),
                 'company_sector': kwargs.get('company_sector'),
                 'specific_requirements': kwargs.get('specific_requirements'),

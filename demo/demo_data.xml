@@ -3,7 +3,6 @@
     <data noupdate="1">
         <!-- Datos de demostración para licitaciones -->
         <record id="demo_bidding_request_1" model="zonaweb.bidding.request">
-            <field name="name">BID/00001</field>
             <field name="company_name">Empresa Demo S.A.</field>
             <field name="contact_name">Juan Pérez</field>
             <field name="email">juan.perez@empresademo.com</field>
@@ -18,7 +17,6 @@
         </record>
 
         <record id="demo_bidding_request_2" model="zonaweb.bidding.request">
-            <field name="name">BID/00002</field>
             <field name="company_name">Tech Solutions Ltd.</field>
             <field name="contact_name">María García</field>
             <field name="email">maria.garcia@techsolutions.com</field>
@@ -34,7 +32,6 @@
 
         <record id="demo_bidding_request_3" model="zonaweb.bidding.request">
             <field name="name">BID/00003</field>
-            <field name="company_name">Clínica Salud Plus</field>
             <field name="contact_name">Dr. Carlos Rodríguez</field>
             <field name="email">carlos.rodriguez@saludplus.com</field>
             <field name="phone">+34 600 555 777</field>
