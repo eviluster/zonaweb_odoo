@@ -2,11 +2,11 @@
 <odoo>
     <data>
         <!-- Vistas del modelo de solicitudes de licitación -->
-        <record id="view_zonaweb_bidding_request_tree" model="ir.ui.view">
-            <field name="name">zonaweb.bidding.request.tree</field>
+        <record id="view_zonaweb_bidding_request_list" model="ir.ui.view">
+            <field name="name">zonaweb.bidding.request.list</field>
             <field name="model">zonaweb.bidding.request</field>
             <field name="arch" type="xml">
-                <tree string="Solicitudes de Licitación">
+                <list string="Solicitudes de Licitación">
                     <field name="name"/>
                     <field name="company_name"/>
                     <field name="contact_name"/>
@@ -14,7 +14,7 @@
                     <field name="service_type"/>
                     <field name="state"/>
                     <field name="create_date"/>
-                </tree>
+                </list>
             </field>
         </record>
         
@@ -105,7 +105,7 @@
         <record id="action_zonaweb_bidding_request" model="ir.actions.act_window">
             <field name="name">Solicitudes de Licitación</field>
             <field name="res_model">zonaweb.bidding.request</field>
-            <field name="view_mode">tree,form,kanban</field>
+            <field name="view_mode">list,form,kanban</field>
             <field name="help" type="html">
                 <p class="o_view_nocontent_smiling_face">
                     Crea tu primera solicitud de licitación
