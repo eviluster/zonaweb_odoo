@@ -21,8 +21,12 @@
         'data/website_data.xml',
     ],
     'assets': {
-        'website.assets_frontend': [
+        'web.assets_frontend': [
+            # CSS va aquí — este bundle SÍ carga en el sitio web
             'zonaweb_website/static/src/css/zonaweb_style.css',
+        ],
+        'website.assets_frontend': [
+            # JS va aquí — necesita el contexto de website
             'zonaweb_website/static/src/js/zonaweb_script.js',
         ],
     },
