@@ -35,7 +35,6 @@
             <field name="url">/licencias</field>
             <field name="parent_id" ref="website.main_menu"/>
             <field name="sequence">5</field>
-            <field name="css_class">highlighted-menu</field>
         </record>
         
         <record id="contact_menu" model="website.menu">
