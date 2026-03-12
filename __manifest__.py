@@ -16,7 +16,6 @@
     'data': [
         'security/ir.model.access.csv',
         'data/website_data.xml',
-        'demo/demo_data.xml',
         'views/bidding_request_views.xml',
         'views/website_templates.xml',
         'views/website_menu.xml',
@@ -26,9 +25,7 @@
             'zonaweb_website/static/src/css/zonaweb_style.css',
             'zonaweb_website/static/src/js/zonaweb_script.js',
         ],
-        'web.assets_backend': [
-            'zonaweb_website/static/src/js/zonaweb_script.js',
-        ],
+        # ⚠️ El JS del frontend NO debe ir en assets_backend
     },
     'demo': [
         'demo/demo_data.xml',

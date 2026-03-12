@@ -1,134 +1,111 @@
-odoo.define('zonaweb_website.main', function (require) {
-    'use strict';
-    
-    var publicWidget = require('web.public.widget');
-    var core = require('web.core');
-    var _t = core._t;
-    
-    var ZonawebCarousel = publicWidget.Widget.extend({
-        selector: '.image-carousel',
-        init: function () {
-            this._super.apply(this, arguments);
-            this.currentSlide = 0;
-            this.slides = this.$el.find('.carousel-slide');
-            this.indicators = this.$el.find('.carousel-indicator');
+/** @odoo-module **/
+
+import { registry } from "@web/core/registry";
+import publicWidget from "@website/js/public.widget";
+
+// ─── Carousel Widget ───────────────────────────────────────────────────────────
+const ZonawebCarousel = publicWidget.Widget.extend({
+    selector: '.image-carousel',
+
+    start() {
+        this._super(...arguments);
+        this.currentSlide = 0;
+        this.slides = this.el.querySelectorAll('.carousel-slide');
+        this.indicators = this.el.querySelectorAll('.carousel-indicator');
+        this.autoPlayInterval = null;
+        this._bindEvents();
+        this._startAutoPlay();
+        return Promise.resolve();
+    },
+
+    _bindEvents() {
+        this.indicators.forEach((indicator) => {
+            indicator.addEventListener('click', () => {
+                const index = parseInt(indicator.dataset.slide);
+                this._showSlide(index);
+                this._resetAutoPlay();
+            });
+        });
+
+        this.el.addEventListener('mouseenter', () => this._stopAutoPlay());
+        this.el.addEventListener('mouseleave', () => this._startAutoPlay());
+    },
+
+    _showSlide(index) {
+        this.slides.forEach(s => s.classList.remove('active'));
+        this.indicators.forEach(i => i.classList.remove('active'));
+        this.slides[index].classList.add('active');
+        this.indicators[index].classList.add('active');
+        this.currentSlide = index;
+    },
+
+    _nextSlide() {
+        this._showSlide((this.currentSlide + 1) % this.slides.length);
+    },
+
+    _startAutoPlay() {
+        this.autoPlayInterval = setInterval(() => this._nextSlide(), 5000);
+    },
+
+    _stopAutoPlay() {
+        if (this.autoPlayInterval) {
+            clearInterval(this.autoPlayInterval);
             this.autoPlayInterval = null;
-        },
-        
-        start: function () {
-            this._super.apply(this, arguments);
-            this.bindEvents();
-            this.startAutoPlay();
-        },
-        
-        bindEvents: function () {
-            var self = this;
-            
-            // Click en indicadores
-            this.indicators.on('click', function () {
-                var slideIndex = parseInt($(this).data('slide'));
-                self.showSlide(slideIndex);
-                self.resetAutoPlay();
-            });
-            
-            // Pausar al pasar el mouse
-            this.$el.on('mouseenter', function () {
-                self.stopAutoPlay();
-            });
-            
-            this.$el.on('mouseleave', function () {
-                self.startAutoPlay();
-            });
-        },
-        
-        showSlide: function (index) {
-            this.slides.removeClass('active');
-            this.indicators.removeClass('active');
-            
-            this.slides.eq(index).addClass('active');
-            this.indicators.eq(index).addClass('active');
-            this.currentSlide = index;
-        },
-        
-        nextSlide: function () {
-            var nextIndex = (this.currentSlide + 1) % this.slides.length;
-            this.showSlide(nextIndex);
-        },
-        
-        startAutoPlay: function () {
-            var self = this;
-            this.autoPlayInterval = setInterval(function () {
-                self.nextSlide();
-            }, 5000);
-        },
-        
-        stopAutoPlay: function () {
-            if (this.autoPlayInterval) {
-                clearInterval(this.autoPlayInterval);
-                this.autoPlayInterval = null;
-            }
-        },
-        
-        resetAutoPlay: function () {
-            this.stopAutoPlay();
-            this.startAutoPlay();
-        },
-        
-        destroy: function () {
-            this.stopAutoPlay();
-            this._super.apply(this, arguments);
         }
-    });
-    
-    publicWidget.registry.ZonawebCarousel = ZonawebCarousel;
-    
-    // Animaciones de scroll
-    var ScrollAnimations = publicWidget.Widget.extend({
-        selector: 'body',
-        init: function () {
-            this._super.apply(this, arguments);
-            this.animatedElements = this.$('[data-animate]');
-        },
-        
-        start: function () {
-            this._super.apply(this, arguments);
-            this.bindScrollEvents();
-            this.checkAnimations();
-        },
-        
-        bindScrollEvents: function () {
-            var self = this;
-            $(window).on('scroll', function () {
-                self.checkAnimations();
-            });
-        },
-        
-        checkAnimations: function () {
-            var self = this;
-            var scrollTop = $(window).scrollTop();
-            var windowHeight = $(window).height();
-            
-            this.animatedElements.each(function () {
-                var $element = $(this);
-                var elementTop = $element.offset().top;
-                var elementHeight = $element.outerHeight();
-                
-                // Verificar si el elemento es visible en la pantalla
-                if (scrollTop + windowHeight > elementTop + elementHeight * 0.2) {
-                    if (!$element.hasClass('animated')) {
-                        $element.addClass('animated');
-                        var animationType = $element.data('animate') || 'fadeInUp';
-                        $element.addClass('animated-' + animationType);
-                    }
-                }
-            });
-        }
-    });
-    
-    publicWidget.registry.ScrollAnimations = ScrollAnimations;
-    
-    return {
-        ZonawebCarousel: ZonawebCarousel,
-        ScrollAnimations: ScrollAnimations
-    };
+    },
+
+    _resetAutoPlay() {
+        this._stopAutoPlay();
+        this._startAutoPlay();
+    },
+
+    destroy() {
+        this._stopAutoPlay();
+        this._super(...arguments);
+    },
 });
+
+publicWidget.registry.ZonawebCarousel = ZonawebCarousel;
+
+
+// ─── Scroll Animations Widget ──────────────────────────────────────────────────
+const ScrollAnimations = publicWidget.Widget.extend({
+    selector: 'body',
+
+    start() {
+        this._super(...arguments);
+        this.animatedElements = this.el.querySelectorAll('[data-animate]');
+        this._bindScrollEvents();
+        this._checkAnimations();
+        return Promise.resolve();
+    },
+
+    _bindScrollEvents() {
+        this._onScroll = () => this._checkAnimations();
+        window.addEventListener('scroll', this._onScroll);
+    },
+
+    _checkAnimations() {
+        const scrollTop = window.scrollY;
+        const windowHeight = window.innerHeight;
+
+        this.animatedElements.forEach((el) => {
+            const rect = el.getBoundingClientRect();
+            const elementTop = rect.top + scrollTop;
+
+            if (scrollTop + windowHeight > elementTop + rect.height * 0.2) {
+                if (!el.classList.contains('animated')) {
+                    const animationType = el.dataset.animate || 'fadeInUp';
+                    el.classList.add('animated', `animated-${animationType}`);
+                }
+            }
+        });
+    },
+
+    destroy() {
+        window.removeEventListener('scroll', this._onScroll);
+        this._super(...arguments);
+    },
+});
+
+publicWidget.registry.ScrollAnimations = ScrollAnimations;
