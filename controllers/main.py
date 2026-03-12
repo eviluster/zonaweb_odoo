@@ -8,9 +8,10 @@ _logger = logging.getLogger(__name__)
 
 class ZonawebWebsite(http.Controller):
 
-    # NOTA: La ruta '/' NO se define aquí.
-    # Al ser un tema con is_homepage=True en website.page,
-    # Odoo gestiona automáticamente la homepage al activar el tema.
+    @http.route('/', type='http', auth='public', website=True)
+    def index(self, **kwargs):
+        """Página de inicio"""
+        return request.render('zonaweb_website.zonaweb_homepage')
 
     @http.route('/licencias', type='http', auth='public', website=True)
     def bidding(self, **kwargs):
@@ -24,15 +25,15 @@ class ZonawebWebsite(http.Controller):
         try:
             estimated_budget = kwargs.get('estimated_budget')
             bidding_request = request.env['zonaweb.bidding.request'].sudo().create({
-                'company_name':         kwargs.get('company_name'),
-                'contact_name':         kwargs.get('contact_name'),
-                'email':                kwargs.get('email'),
-                'phone':                kwargs.get('phone'),
-                'service_type':         kwargs.get('service_type'),
-                'project_description':  kwargs.get('project_description'),
-                'estimated_budget':     float(estimated_budget) if estimated_budget else 0.0,
-                'estimated_timeline':   kwargs.get('estimated_timeline') or False,
-                'company_sector':       kwargs.get('company_sector') or False,
+                'company_name':          kwargs.get('company_name'),
+                'contact_name':          kwargs.get('contact_name'),
+                'email':                 kwargs.get('email'),
+                'phone':                 kwargs.get('phone'),
+                'service_type':          kwargs.get('service_type'),
+                'project_description':   kwargs.get('project_description'),
+                'estimated_budget':      float(estimated_budget) if estimated_budget else 0.0,
+                'estimated_timeline':    kwargs.get('estimated_timeline') or False,
+                'company_sector':        kwargs.get('company_sector') or False,
                 'specific_requirements': kwargs.get('specific_requirements'),
             })
 
