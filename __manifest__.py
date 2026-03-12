@@ -23,7 +23,7 @@
         'data/website_data.xml',
     ],
     'assets': {
-        'web.assets_frontend': [
+        'website.assets_frontend': [
             'zonaweb_website/static/src/css/zonaweb_style.css',
             'zonaweb_website/static/src/js/zonaweb_script.js',
         ],
