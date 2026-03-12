@@ -31,6 +31,7 @@
         </record>
 
         <record id="demo_bidding_request_3" model="zonaweb.bidding.request">
+            <field name="company_name">SaludPlus Clínica S.L.</field>
             <field name="name">BID/00003</field>
             <field name="contact_name">Dr. Carlos Rodríguez</field>
             <field name="email">carlos.rodriguez@saludplus.com</field>
