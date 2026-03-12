@@ -1,47 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <data>
-        <!-- Menú Principal -->
-        <record id="main_menu" model="website.menu">
-            <field name="name">Inicio</field>
-            <field name="url">/</field>
-            <field name="parent_id" ref="website.main_menu"/>
-            <field name="sequence">1</field>
-        </record>
-        
-        <record id="services_menu" model="website.menu">
-            <field name="name">Servicios</field>
-            <field name="url">/services</field>
-            <field name="parent_id" ref="website.main_menu"/>
-            <field name="sequence">2</field>
-        </record>
-        
-        <record id="portfolio_menu" model="website.menu">
-            <field name="name">Portafolio</field>
-            <field name="url">/portfolio</field>
-            <field name="parent_id" ref="website.main_menu"/>
-            <field name="sequence">3</field>
-        </record>
-        
-        <record id="about_menu" model="website.menu">
-            <field name="name">Nosotros</field>
-            <field name="url">/about</field>
-            <field name="parent_id" ref="website.main_menu"/>
-            <field name="sequence">4</field>
-        </record>
-        
-        <record id="bidding_menu" model="website.menu">
-            <field name="name">Licitaciones</field>
-            <field name="url">/licencias</field>
-            <field name="parent_id" ref="website.main_menu"/>
-            <field name="sequence">5</field>
-        </record>
-        
-        <record id="contact_menu" model="website.menu">
-            <field name="name">Contacto</field>
-            <field name="url">/contactus</field>
-            <field name="parent_id" ref="website.main_menu"/>
-            <field name="sequence">6</field>
-        </record>
-    </data>
+
+    <record id="menu_servicios" model="website.menu">
+        <field name="name">Servicios</field>
+        <field name="url">/servicios</field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence">10</field>
+    </record>
+
+    <record id="menu_portafolio" model="website.menu">
+        <field name="name">Portafolio</field>
+        <field name="url">/portafolio</field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence">20</field>
+    </record>
+
+    <record id="menu_nosotros" model="website.menu">
+        <field name="name">Nosotros</field>
+        <field name="url">/nosotros</field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence">30</field>
+    </record>
+
+    <record id="menu_licitaciones" model="website.menu">
+        <field name="name">Licitaciones</field>
+        <field name="url">/licencias</field>
+        <field name="parent_id" ref="website.main_menu"/>
+        <field name="sequence">40</field>
+    </record>
+
 </odoo>
