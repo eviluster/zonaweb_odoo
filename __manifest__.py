@@ -15,17 +15,18 @@
     ],
     'data': [
         'security/ir.model.access.csv',
-        'data/website_data.xml',
-        'views/bidding_request_views.xml',
+        # ✅ Las vistas/templates PRIMERO, antes que los datos que las referencian
         'views/website_templates.xml',
+        'views/bidding_request_views.xml',
         'views/website_menu.xml',
+        # ✅ Los datos DESPUÉS, cuando los templates ya están registrados
+        'data/website_data.xml',
     ],
     'assets': {
         'web.assets_frontend': [
             'zonaweb_website/static/src/css/zonaweb_style.css',
             'zonaweb_website/static/src/js/zonaweb_script.js',
         ],
-        # ⚠️ El JS del frontend NO debe ir en assets_backend
     },
     'demo': [
         'demo/demo_data.xml',
