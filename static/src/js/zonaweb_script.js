@@ -2,12 +2,14 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // ── Carousel ────────────────────────────────────────
+    // ── Carousel ────────────────────────────────────────────────────────────────
     document.querySelectorAll('.image-carousel').forEach((carousel) => {
-        const slides = carousel.querySelectorAll('.carousel-slide');
+        const slides     = carousel.querySelectorAll('.carousel-slide');
         const indicators = carousel.querySelectorAll('.carousel-indicator');
-        let current = 0;
+        let current  = 0;
         let interval = null;
+
+        if (!slides.length) return;
 
         const showSlide = (index) => {
             slides[current].classList.remove('active');
@@ -42,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
         start();
     });
 
-    // ── Scroll Animations ────────────────────────────────
+    // ── Scroll Animations ────────────────────────────────────────────────────────
     const animatedEls = document.querySelectorAll('[data-animate]');
 
     const checkAnimations = () => {
@@ -55,6 +57,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
+    // passive:true elimina el warning de devtools sobre scroll-blocking
     window.addEventListener('scroll', checkAnimations, { passive: true });
     checkAnimations();
+
 });

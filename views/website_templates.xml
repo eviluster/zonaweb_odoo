@@ -1,24 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+
+    <!-- ============================================================
+         TEMA LAYOUT — Odoo lo usa para reconocer y activar el tema
+         Hereda website.layout e inyecta variables CSS globales
+    ============================================================ -->
+    <template id="theme_layout" name="Zonaweb Theme Layout"
+        inherit_id="website.layout"
+        active="True">
+        <xpath expr="//head" position="inside">
+            <style>
+                :root {
+                    --primary:         #00539F;
+                    --secondary:       #003d75;
+                    --accent:          #00A3E0;
+                    --text-dark:       #333333;
+                    --text-light:      #777777;
+                    --bg-light:        #f8f9fa;
+                    --bg-white:        #ffffff;
+                    --shadow:          0 5px 15px rgba(0,0,0,0.05);
+                    --shadow-hover:    0 10px 25px rgba(0,0,0,0.10);
+                }
+            </style>
+        </xpath>
+    </template>
+
+    <!-- ============================================================
+         HOMEPAGE — Página principal del tema
+    ============================================================ -->
     <template id="zonaweb_homepage" name="Zonaweb Homepage">
         <t t-call="website.layout">
             <div id="wrap" class="oe_structure oe_empty">
+
                 <!-- Hero Section -->
                 <section class="hero-section">
                     <div class="container">
                         <div class="hero-content">
-                            <h1 class="hero-title">Soluciones Informáticas<br/>Profesionales para tu Empresa</h1>
-                            <p class="hero-subtitle">Desarrollo de software, infraestructura de redes, soporte técnico y seguridad informática para impulsar tu negocio</p>
-                            
+                            <h1 class="hero-title">
+                                Soluciones Informáticas<br/>Profesionales para tu Empresa
+                            </h1>
+                            <p class="hero-subtitle">
+                                Desarrollo de software, infraestructura de redes, soporte técnico
+                                y seguridad informática para impulsar tu negocio
+                            </p>
+
                             <div class="image-carousel">
                                 <div class="carousel-slide active">
-                                    <img src="/zonaweb_website/static/src/img/hero1.jpg" alt="Equipo de desarrollo de software"/>
+                                    <img src="/zonaweb_website/static/src/img/hero1.jpg"
+                                         alt="Equipo de desarrollo de software"/>
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="/zonaweb_website/static/src/img/hero2.jpg" alt="Infraestructura de redes"/>
+                                    <img src="/zonaweb_website/static/src/img/hero2.jpg"
+                                         alt="Infraestructura de redes"/>
                                 </div>
                                 <div class="carousel-slide">
-                                    <img src="/zonaweb_website/static/src/img/hero3.jpg" alt="Seguridad informática"/>
+                                    <img src="/zonaweb_website/static/src/img/hero3.jpg"
+                                         alt="Seguridad informática"/>
                                 </div>
                                 <div class="carousel-indicators">
                                     <div class="carousel-indicator active" data-slide="0"></div>
@@ -26,117 +63,145 @@
                                     <div class="carousel-indicator" data-slide="2"></div>
                                 </div>
                             </div>
-                            
+
                             <a href="/contactus" class="cta-button">Contactar ahora</a>
                         </div>
                     </div>
                 </section>
-                
+
                 <!-- Services Section -->
                 <section class="services-section">
                     <div class="container">
                         <h2 class="section-title">Nuestros Servicios</h2>
                         <div class="services-grid">
+
                             <div class="service-card">
                                 <div class="service-image">
-                                    <img src="/zonaweb_website/static/src/img/service1.jpg" alt="Desarrollo de software"/>
+                                    <img src="/zonaweb_website/static/src/img/service1.jpg"
+                                         alt="Desarrollo de software"/>
                                 </div>
                                 <div class="service-content">
                                     <div class="service-icon">
                                         <i class="fa fa-code"></i>
                                     </div>
                                     <h3 class="service-title">Desarrollo de Software</h3>
-                                    <p class="service-description">Creamos soluciones a medida para optimizar tus procesos de negocio.</p>
-                                    <a href="/services/software" class="service-link">Saber más <i class="fa fa-arrow-right"></i></a>
+                                    <p class="service-description">
+                                        Creamos soluciones a medida para optimizar tus procesos de negocio.
+                                    </p>
+                                    <a href="/services/software" class="service-link">
+                                        Saber más <i class="fa fa-arrow-right"></i>
+                                    </a>
                                 </div>
                             </div>
-                            
+
                             <div class="service-card">
                                 <div class="service-image">
-                                    <img src="/zonaweb_website/static/src/img/service2.jpg" alt="Infraestructura de redes"/>
+                                    <img src="/zonaweb_website/static/src/img/service2.jpg"
+                                         alt="Infraestructura de redes"/>
                                 </div>
                                 <div class="service-content">
                                     <div class="service-icon">
-                                        <!-- fa-network-wired es FA5, se reemplaza por fa-sitemap (FA4) -->
                                         <i class="fa fa-sitemap"></i>
                                     </div>
                                     <h3 class="service-title">Infraestructura de Redes</h3>
-                                    <p class="service-description">Diseñamos redes robustas y seguras para tu empresa.</p>
-                                    <a href="/services/infrastructure" class="service-link">Saber más <i class="fa fa-arrow-right"></i></a>
+                                    <p class="service-description">
+                                        Diseñamos redes robustas y seguras para tu empresa.
+                                    </p>
+                                    <a href="/services/infrastructure" class="service-link">
+                                        Saber más <i class="fa fa-arrow-right"></i>
+                                    </a>
                                 </div>
                             </div>
-                            
+
                             <div class="service-card">
                                 <div class="service-image">
-                                    <img src="/zonaweb_website/static/src/img/service3.jpg" alt="Soporte técnico"/>
+                                    <img src="/zonaweb_website/static/src/img/service3.jpg"
+                                         alt="Soporte técnico"/>
                                 </div>
                                 <div class="service-content">
                                     <div class="service-icon">
-                                        <i class="fa fa-headset"></i>
+                                        <i class="fa fa-phone"></i>
                                     </div>
                                     <h3 class="service-title">Soporte Técnico</h3>
-                                    <p class="service-description">Asistencia remota y presencial para resolver problemas.</p>
-                                    <a href="/services/support" class="service-link">Saber más <i class="fa fa-arrow-right"></i></a>
+                                    <p class="service-description">
+                                        Asistencia remota y presencial para resolver problemas.
+                                    </p>
+                                    <a href="/services/support" class="service-link">
+                                        Saber más <i class="fa fa-arrow-right"></i>
+                                    </a>
                                 </div>
                             </div>
-                            
+
                             <div class="service-card">
                                 <div class="service-image">
-                                    <img src="/zonaweb_website/static/src/img/service4.jpg" alt="Seguridad informática"/>
+                                    <img src="/zonaweb_website/static/src/img/service4.jpg"
+                                         alt="Seguridad informática"/>
                                 </div>
                                 <div class="service-content">
                                     <div class="service-icon">
-                                        <!-- fa-shield-alt es FA5, se reemplaza por fa-shield (FA4) -->
                                         <i class="fa fa-shield"></i>
                                     </div>
                                     <h3 class="service-title">Seguridad Informática</h3>
-                                    <p class="service-description">Protegemos tus activos digitales con soluciones avanzadas.</p>
-                                    <a href="/services/security" class="service-link">Saber más <i class="fa fa-arrow-right"></i></a>
+                                    <p class="service-description">
+                                        Protegemos tus activos digitales con soluciones avanzadas.
+                                    </p>
+                                    <a href="/services/security" class="service-link">
+                                        Saber más <i class="fa fa-arrow-right"></i>
+                                    </a>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </section>
-                
+
                 <!-- Portfolio Section -->
                 <section class="portfolio-section">
                     <div class="container">
                         <h2 class="section-title">Proyectos Recientes</h2>
                         <div class="portfolio-grid">
+
                             <div class="portfolio-card">
                                 <div class="portfolio-image">
-                                    <img src="/zonaweb_website/static/src/img/project1.jpg" alt="Proyecto TMS"/>
+                                    <img src="/zonaweb_website/static/src/img/project1.jpg"
+                                         alt="Proyecto TMS"/>
                                 </div>
                                 <div class="portfolio-content">
                                     <h3 class="portfolio-title">TMS - Sistema de Gestión</h3>
-                                    <p class="portfolio-description">Sistema integral para gestión de transporte y logística.</p>
+                                    <p class="portfolio-description">
+                                        Sistema integral para gestión de transporte y logística.
+                                    </p>
                                 </div>
                             </div>
-                            
+
                             <div class="portfolio-card">
                                 <div class="portfolio-image">
-                                    <img src="/zonaweb_website/static/src/img/project2.jpg" alt="Proyecto Reservas 360"/>
+                                    <img src="/zonaweb_website/static/src/img/project2.jpg"
+                                         alt="Proyecto Reservas 360"/>
                                 </div>
                                 <div class="portfolio-content">
                                     <h3 class="portfolio-title">Reservas 360</h3>
-                                    <p class="portfolio-description">Plataforma de reservas online con pagos integrados.</p>
+                                    <p class="portfolio-description">
+                                        Plataforma de reservas online con pagos integrados.
+                                    </p>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </section>
-                
+
                 <!-- Plans Section -->
                 <section class="plans-section">
                     <div class="container">
                         <h2 class="section-title">Planes de Seguridad</h2>
                         <div class="plans-grid">
+
                             <div class="plan-card">
                                 <div class="plan-price">$49</div>
                                 <h3 class="plan-title">Plan Estándar</h3>
                                 <ul class="plan-features">
                                     <li class="plan-feature">
-                                        <!-- fa-check-circle-o es la variante FA4 -->
                                         <i class="fa fa-check-circle-o"></i>
                                         <span>Protección antivirus básica</span>
                                     </li>
@@ -149,9 +214,11 @@
                                         <span>Actualizaciones mensuales</span>
                                     </li>
                                 </ul>
-                                <a href="/shop/product/standard-plan" class="plan-button">Comprar ahora</a>
+                                <a href="/shop/product/standard-plan" class="plan-button">
+                                    Comprar ahora
+                                </a>
                             </div>
-                            
+
                             <div class="plan-card">
                                 <div class="plan-price">$79</div>
                                 <h3 class="plan-title">Plan Premium</h3>
@@ -169,31 +236,43 @@
                                         <span>Actualizaciones en tiempo real</span>
                                     </li>
                                 </ul>
-                                <a href="/shop/product/premium-plan" class="plan-button">Comprar ahora</a>
+                                <a href="/shop/product/premium-plan" class="plan-button">
+                                    Comprar ahora
+                                </a>
                             </div>
+
                         </div>
                     </div>
                 </section>
-                
+
                 <!-- Bidding Banner -->
                 <section class="bidding-banner">
                     <div class="container">
                         <div class="bidding-content">
                             <div class="bidding-info">
-                                <h2 class="bidding-title">¿Necesitas una solución personalizada?</h2>
-                                <p class="bidding-text">Solicita una licitación y nuestro equipo te contactará con una propuesta adaptada a tus necesidades.</p>
+                                <h2 class="bidding-title">
+                                    ¿Necesitas una solución personalizada?
+                                </h2>
+                                <p class="bidding-text">
+                                    Solicita una licitación y nuestro equipo te contactará
+                                    con una propuesta adaptada a tus necesidades.
+                                </p>
                             </div>
                             <a href="/licencias" class="bidding-button">Solicitar Licitación</a>
                         </div>
                     </div>
                 </section>
-                
+
                 <!-- Testimonials Section -->
                 <section class="testimonials-section">
                     <div class="container">
                         <h2 class="section-title">Testimonios</h2>
                         <div class="testimonial-card">
-                            <p class="testimonial-text">"Zonaweb transformó completamente nuestra infraestructura tecnológica. Su equipo profesional nos ayudó a optimizar procesos y mejorar la seguridad."</p>
+                            <p class="testimonial-text">
+                                "Zonaweb transformó completamente nuestra infraestructura
+                                tecnológica. Su equipo profesional nos ayudó a optimizar
+                                procesos y mejorar la seguridad."
+                            </p>
                             <div class="testimonial-author">
                                 <div class="author-avatar">JD</div>
                                 <div class="author-info">
@@ -204,21 +283,25 @@
                         </div>
                     </div>
                 </section>
+
             </div>
         </t>
     </template>
-    
-    <!-- Bidding Page -->
+
+    <!-- ============================================================
+         PÁGINA DE LICITACIONES
+    ============================================================ -->
     <template id="bidding_page" name="Bidding Page">
         <t t-call="website.layout">
             <div id="wrap" class="oe_structure">
+
                 <section class="bidding-hero">
                     <div class="container">
                         <h1>Solicitar Licitación</h1>
                         <p>Obtén una propuesta personalizada para tus necesidades de servicios informáticos</p>
                     </div>
                 </section>
-                
+
                 <section class="bidding-process">
                     <div class="container">
                         <h2>Nuestro Proceso de Licitación</h2>
@@ -251,38 +334,43 @@
                         </div>
                     </div>
                 </section>
-                
+
                 <section class="bidding-form-section">
                     <div class="container">
                         <h2>Formulario de Licitación</h2>
                         <form action="/submit-bidding" method="post" class="bidding-form">
-                            <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
-                            
+                            <input type="hidden" name="csrf_token"
+                                   t-att-value="request.csrf_token()"/>
+
                             <div class="form-row">
                                 <div class="form-group">
                                     <label class="form-label">Nombre de la Empresa *</label>
-                                    <input type="text" name="company_name" class="form-control" required="required"/>
+                                    <input type="text" name="company_name"
+                                           class="form-control" required="required"/>
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Nombre de Contacto *</label>
-                                    <input type="text" name="contact_name" class="form-control" required="required"/>
+                                    <input type="text" name="contact_name"
+                                           class="form-control" required="required"/>
                                 </div>
                             </div>
-                            
+
                             <div class="form-row">
                                 <div class="form-group">
                                     <label class="form-label">Correo Electrónico *</label>
-                                    <input type="email" name="email" class="form-control" required="required"/>
+                                    <input type="email" name="email"
+                                           class="form-control" required="required"/>
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Teléfono</label>
                                     <input type="tel" name="phone" class="form-control"/>
                                 </div>
                             </div>
-                            
+
                             <div class="form-group">
                                 <label class="form-label">Tipo de Servicio *</label>
-                                <select name="service_type" class="form-control" required="required">
+                                <select name="service_type" class="form-control"
+                                        required="required">
                                     <option value="">Selecciona un tipo de servicio</option>
                                     <option value="software">Desarrollo de Software</option>
                                     <option value="infrastructure">Infraestructura de Redes</option>
@@ -291,16 +379,18 @@
                                     <option value="other">Otro</option>
                                 </select>
                             </div>
-                            
+
                             <div class="form-group">
                                 <label class="form-label">Descripción del Proyecto *</label>
-                                <textarea name="project_description" class="form-control" rows="5" required="required"></textarea>
+                                <textarea name="project_description" class="form-control"
+                                          rows="5" required="required"></textarea>
                             </div>
-                            
+
                             <div class="form-row">
                                 <div class="form-group">
                                     <label class="form-label">Presupuesto Estimado</label>
-                                    <input type="number" name="estimated_budget" class="form-control" step="0.01" min="0"/>
+                                    <input type="number" name="estimated_budget"
+                                           class="form-control" step="0.01" min="0"/>
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label">Plazo Estimado</label>
@@ -312,7 +402,7 @@
                                     </select>
                                 </div>
                             </div>
-                            
+
                             <div class="form-group">
                                 <label class="form-label">Sector de la Empresa</label>
                                 <select name="company_sector" class="form-control">
@@ -327,23 +417,29 @@
                                     <option value="other">Otro</option>
                                 </select>
                             </div>
-                            
+
                             <div class="form-group">
                                 <label class="form-label">Requisitos Específicos</label>
-                                <textarea name="specific_requirements" class="form-control" rows="3"></textarea>
+                                <textarea name="specific_requirements"
+                                          class="form-control" rows="3"></textarea>
                             </div>
-                            
+
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary btn-lg">Enviar Solicitud</button>
+                                <button type="submit" class="btn btn-primary btn-lg">
+                                    Enviar Solicitud
+                                </button>
                             </div>
                         </form>
                     </div>
                 </section>
+
             </div>
         </t>
     </template>
-    
-    <!-- Bidding Thank You Page -->
+
+    <!-- ============================================================
+         PÁGINA DE AGRADECIMIENTO
+    ============================================================ -->
     <template id="bidding_thankyou" name="Bidding Thank You">
         <t t-call="website.layout">
             <div id="wrap" class="oe_structure">
@@ -352,8 +448,14 @@
                         <div class="thank-you-content">
                             <i class="fa fa-check-circle fa-4x text-success"></i>
                             <h1>¡Solicitud Recibida!</h1>
-                            <p>Tu solicitud de licitación ha sido recibida exitosamente. Nuestro equipo la revisará y te contactará en menos de 24 horas.</p>
-                            <p><strong>Número de referencia:</strong> <span t-out="bidding_id"/></p>
+                            <p>
+                                Tu solicitud de licitación ha sido recibida exitosamente.
+                                Nuestro equipo la revisará y te contactará en menos de 24 horas.
+                            </p>
+                            <p>
+                                <strong>Número de referencia:</strong>
+                                <span t-out="bidding_id"/>
+                            </p>
                             <a href="/" class="btn btn-primary">Volver al Inicio</a>
                         </div>
                     </div>
@@ -361,8 +463,11 @@
             </div>
         </t>
     </template>
-    
-    <!-- Página personalizada Zonaweb -->
+
+    <!-- ============================================================
+         REGISTROS website.page — en el mismo archivo que los templates
+         para que los ref= los encuentren en la misma transacción
+    ============================================================ -->
     <record id="zonaweb_homepage_page" model="website.page">
         <field name="name">Zonaweb Homepage</field>
         <field name="url">/</field>
@@ -371,7 +476,6 @@
         <field name="is_homepage">True</field>
     </record>
 
-    <!-- Página de licitaciones — ref sin prefijo, mismo archivo -->
     <record id="website_page_bidding" model="website.page">
         <field name="name">Solicitar Licitación</field>
         <field name="website_published">True</field>
@@ -379,4 +483,5 @@
         <field name="url">/licencias</field>
         <field name="view_id" ref="bidding_page"/>
     </record>
+
 </odoo>

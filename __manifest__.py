@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'Zonaweb Website Template',
+    'name': 'Tema Zonaweb',
     'version': '18.0.1.0.0',
-    'category': 'Website',
-    'summary': 'Plantilla de sitio web para Zonaweb con sistema de licitaciones',
+    'category': 'Theme/Corporate',
+    'summary': 'Tema corporativo profesional para Zonaweb',
     'author': 'Zonaweb',
     'website': 'https://www.zonaweb.com',
     'license': 'LGPL-3',
@@ -15,11 +15,9 @@
     ],
     'data': [
         'security/ir.model.access.csv',
-        # ✅ Las vistas/templates PRIMERO, antes que los datos que las referencian
         'views/website_templates.xml',
         'views/bidding_request_views.xml',
         'views/website_menu.xml',
-        # ✅ Los datos DESPUÉS, cuando los templates ya están registrados
         'data/website_data.xml',
     ],
     'assets': {
@@ -35,5 +33,8 @@
     'auto_install': False,
     'application': False,
     'sequence': 100,
-    'images': ['static/description/banner.png'],
+    'images': [
+        'static/description/banner.png',
+        'static/description/theme_preview.png',
+    ],
 }
