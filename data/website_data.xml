@@ -10,24 +10,36 @@
             <field name="company_id" eval="False"/>
         </record>
 
-        <!-- Página web de inicio por defecto -->
-        <record id="website_page_zonaweb_homepage" model="website.page">
-            <field name="name">Inicio Zonaweb</field>
-            <field name="website_published">True</field>
-            <field name="website_indexed">True</field>
-            <field name="url">/zonaweb-home</field>
-            <field name="type">qweb</field>
-            <field name="key">zonaweb_website.zonaweb_homepage</field>
-        </record>
-
-        <!-- Página de licitaciones -->
+        <!-- Página de licitaciones — referencia al template bidding_page -->
+        <!-- NOTA: La homepage ya se define en website_templates.xml, no duplicar aquí -->
         <record id="website_page_bidding" model="website.page">
             <field name="name">Solicitar Licitación</field>
             <field name="website_published">True</field>
             <field name="website_indexed">True</field>
             <field name="url">/licencias</field>
-            <field name="type">qweb</field>
-            <field name="key">zonaweb_website.bidding_page</field>
+            <field name="view_id" ref="zonaweb_website.bidding_page"/>
+        </record>
+
+        <!-- Plantilla de email de confirmación -->
+        <record id="email_template_bidding_confirmation" model="mail.template">
+            <field name="name">Confirmación de Solicitud de Licitación</field>
+            <field name="model_id" ref="model_zonaweb_bidding_request"/>
+            <field name="subject">Confirmación de Solicitud de Licitación - ${object.name}</field>
+            <field name="email_from">${object.env.company.email or 'noreply@zonaweb.com'}</field>
+            <field name="email_to">${object.email}</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p>Estimado/a ${object.contact_name},</p>
+                    <p>Gracias por tu interés en los servicios de Zonaweb. Hemos recibido tu solicitud con los siguientes detalles:</p>
+                    <ul>
+                        <li><strong>Número de referencia:</strong> ${object.name}</li>
+                        <li><strong>Empresa:</strong> ${object.company_name}</li>
+                        <li><strong>Tipo de servicio:</strong> ${object.service_type}</li>
+                    </ul>
+                    <p>Nuestro equipo te contactará en menos de 24 horas con una propuesta detallada.</p>
+                    <p>Atentamente,<br/>El equipo de Zonaweb</p>
+                </div>
+            </field>
         </record>
     </data>
 </odoo>
