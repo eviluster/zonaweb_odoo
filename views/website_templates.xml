@@ -57,7 +57,8 @@
                                 </div>
                                 <div class="service-content">
                                     <div class="service-icon">
-                                        <i class="fa fa-network-wired"></i>
+                                        <!-- fa-network-wired es FA5, se reemplaza por fa-sitemap (FA4) -->
+                                        <i class="fa fa-sitemap"></i>
                                     </div>
                                     <h3 class="service-title">Infraestructura de Redes</h3>
                                     <p class="service-description">Diseñamos redes robustas y seguras para tu empresa.</p>
@@ -85,7 +86,8 @@
                                 </div>
                                 <div class="service-content">
                                     <div class="service-icon">
-                                        <i class="fa fa-shield-alt"></i>
+                                        <!-- fa-shield-alt es FA5, se reemplaza por fa-shield (FA4) -->
+                                        <i class="fa fa-shield"></i>
                                     </div>
                                     <h3 class="service-title">Seguridad Informática</h3>
                                     <p class="service-description">Protegemos tus activos digitales con soluciones avanzadas.</p>
@@ -134,15 +136,16 @@
                                 <h3 class="plan-title">Plan Estándar</h3>
                                 <ul class="plan-features">
                                     <li class="plan-feature">
-                                        <i class="fa fa-check-circle"></i>
+                                        <!-- fa-check-circle-o es la variante FA4 -->
+                                        <i class="fa fa-check-circle-o"></i>
                                         <span>Protección antivirus básica</span>
                                     </li>
                                     <li class="plan-feature">
-                                        <i class="fa fa-check-circle"></i>
+                                        <i class="fa fa-check-circle-o"></i>
                                         <span>Soporte técnico por correo</span>
                                     </li>
                                     <li class="plan-feature">
-                                        <i class="fa fa-check-circle"></i>
+                                        <i class="fa fa-check-circle-o"></i>
                                         <span>Actualizaciones mensuales</span>
                                     </li>
                                 </ul>
@@ -154,15 +157,15 @@
                                 <h3 class="plan-title">Plan Premium</h3>
                                 <ul class="plan-features">
                                     <li class="plan-feature">
-                                        <i class="fa fa-check-circle"></i>
+                                        <i class="fa fa-check-circle-o"></i>
                                         <span>Protección antivirus avanzada</span>
                                     </li>
                                     <li class="plan-feature">
-                                        <i class="fa fa-check-circle"></i>
+                                        <i class="fa fa-check-circle-o"></i>
                                         <span>Soporte técnico 24/7</span>
                                     </li>
                                     <li class="plan-feature">
-                                        <i class="fa fa-check-circle"></i>
+                                        <i class="fa fa-check-circle-o"></i>
                                         <span>Actualizaciones en tiempo real</span>
                                     </li>
                                 </ul>
@@ -350,7 +353,7 @@
                             <i class="fa fa-check-circle fa-4x text-success"></i>
                             <h1>¡Solicitud Recibida!</h1>
                             <p>Tu solicitud de licitación ha sido recibida exitosamente. Nuestro equipo la revisará y te contactará en menos de 24 horas.</p>
-                            <p><strong>Número de referencia:</strong> <span t-esc="bidding_id"/></p>
+                            <p><strong>Número de referencia:</strong> <span t-out="bidding_id"/></p>
                             <a href="/" class="btn btn-primary">Volver al Inicio</a>
                         </div>
                     </div>
@@ -359,8 +362,12 @@
         </t>
     </template>
     
-    <!-- Reemplazar la página principal por defecto -->
-    <record id="website.homepage" model="website.page">
+    <!-- Página personalizada Zonaweb -->
+    <record id="zonaweb_homepage_page" model="website.page">
+        <field name="name">Zonaweb Homepage</field>
+        <field name="url">/</field>
         <field name="view_id" ref="zonaweb_homepage"/>
+        <field name="website_published">True</field>
+        <field name="is_homepage">True</field>
     </record>
 </odoo>
