@@ -55,6 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    window.addEventListener('scroll', checkAnimations);
+    window.addEventListener('scroll', checkAnimations, { passive: true });
     checkAnimations();
 });
