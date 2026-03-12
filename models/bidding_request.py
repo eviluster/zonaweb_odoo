@@ -54,15 +54,9 @@ class BiddingRequest(models.Model):
         string='Presupuesto Estimado'
     )
     estimated_timeline = fields.Selection([
-<<<<<<< qwen-code-b73093dc-8efe-4cbc-a495-82e06c2f7c7b
         ('normal', 'Normal (2-4 semanas)'),
         ('urgent', 'Urgente (1-2 semanas)'),
         ('flexible', 'Flexible (1-3 meses)'),
-=======
-        ('flexible', 'Flexible'),
-        ('normal', 'Normal'),
-        ('urgent', 'Urgente'),
->>>>>>> main
     ], string='Cronograma Estimado')
     company_sector = fields.Selection([
         ('retail', 'Retail'),
