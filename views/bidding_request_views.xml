@@ -14,7 +14,7 @@
                     <field name="service_type"/>
                     <field name="state" widget="badge"
                         decoration-success="state == 'approved'"
-                        decoration-info="state == 'confirmed'"
+                        decoration-warning="state == 'confirmed'"
                         decoration-danger="state == 'rejected'"/>
                     <field name="create_date"/>
                 </list>
@@ -102,7 +102,7 @@
                                 <div class="oe_kanban_bottom_left">
                                     <field name="state" widget="badge"
                                         decoration-success="state == 'approved'"
-                                        decoration-info="state == 'confirmed'"
+                                        decoration-warning="state == 'confirmed'"
                                         decoration-danger="state == 'rejected'"
                                         decoration-muted="state == 'draft'"/>
                                 </div>
