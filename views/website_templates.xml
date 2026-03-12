@@ -24,11 +24,13 @@
         </xpath>
     </template>
 
-    <!-- HOMEPAGE -->
+    <!-- HOMEPAGE — hereda website.homepage y reemplaza el #wrap -->
     <template id="zonaweb_homepage"
               key="zonaweb_website.zonaweb_homepage"
-              name="Zonaweb Homepage">
-        <t t-call="website.layout">
+              name="Zonaweb Homepage"
+              inherit_id="website.homepage"
+              active="True">
+        <xpath expr="//div[@id='wrap']" position="replace">
             <div id="wrap" class="oe_structure oe_empty">
                 <section class="hero-section">
                     <div class="container">
@@ -55,6 +57,7 @@
                         </div>
                     </div>
                 </section>
+
                 <section class="services-section">
                     <div class="container">
                         <h2 class="section-title">Nuestros Servicios</h2>
@@ -65,7 +68,7 @@
                                     <div class="service-icon"><i class="fa fa-code"></i></div>
                                     <h3 class="service-title">Desarrollo de Software</h3>
                                     <p class="service-description">Creamos soluciones a medida para optimizar tus procesos de negocio.</p>
-                                    <a href="/services/software" class="service-link">Saber más <i class="fa fa-arrow-right"></i></a>
+                                    <a href="/services" class="service-link">Saber más <i class="fa fa-arrow-right"></i></a>
                                 </div>
                             </div>
                             <div class="service-card">
@@ -74,7 +77,7 @@
                                     <div class="service-icon"><i class="fa fa-sitemap"></i></div>
                                     <h3 class="service-title">Infraestructura de Redes</h3>
                                     <p class="service-description">Diseñamos redes robustas y seguras para tu empresa.</p>
-                                    <a href="/services/infrastructure" class="service-link">Saber más <i class="fa fa-arrow-right"></i></a>
+                                    <a href="/services" class="service-link">Saber más <i class="fa fa-arrow-right"></i></a>
                                 </div>
                             </div>
                             <div class="service-card">
@@ -83,7 +86,7 @@
                                     <div class="service-icon"><i class="fa fa-phone"></i></div>
                                     <h3 class="service-title">Soporte Técnico</h3>
                                     <p class="service-description">Asistencia remota y presencial para resolver problemas.</p>
-                                    <a href="/services/support" class="service-link">Saber más <i class="fa fa-arrow-right"></i></a>
+                                    <a href="/services" class="service-link">Saber más <i class="fa fa-arrow-right"></i></a>
                                 </div>
                             </div>
                             <div class="service-card">
@@ -92,25 +95,26 @@
                                     <div class="service-icon"><i class="fa fa-shield"></i></div>
                                     <h3 class="service-title">Seguridad Informática</h3>
                                     <p class="service-description">Protegemos tus activos digitales con soluciones avanzadas.</p>
-                                    <a href="/services/security" class="service-link">Saber más <i class="fa fa-arrow-right"></i></a>
+                                    <a href="/services" class="service-link">Saber más <i class="fa fa-arrow-right"></i></a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
+
                 <section class="portfolio-section">
                     <div class="container">
                         <h2 class="section-title">Proyectos Recientes</h2>
                         <div class="portfolio-grid">
                             <div class="portfolio-card">
-                                <div class="portfolio-image"><img src="/zonaweb_website/static/src/img/project1.jpg" alt="Proyecto TMS"/></div>
+                                <div class="portfolio-image"><img src="/zonaweb_website/static/src/img/portfolio1.jpg" alt="Proyecto TMS"/></div>
                                 <div class="portfolio-content">
                                     <h3 class="portfolio-title">TMS - Sistema de Gestión</h3>
                                     <p class="portfolio-description">Sistema integral para gestión de transporte y logística.</p>
                                 </div>
                             </div>
                             <div class="portfolio-card">
-                                <div class="portfolio-image"><img src="/zonaweb_website/static/src/img/project2.jpg" alt="Proyecto Reservas 360"/></div>
+                                <div class="portfolio-image"><img src="/zonaweb_website/static/src/img/portfolio2.jpg" alt="Proyecto Reservas 360"/></div>
                                 <div class="portfolio-content">
                                     <h3 class="portfolio-title">Reservas 360</h3>
                                     <p class="portfolio-description">Plataforma de reservas online con pagos integrados.</p>
@@ -119,6 +123,7 @@
                         </div>
                     </div>
                 </section>
+
                 <section class="plans-section">
                     <div class="container">
                         <h2 class="section-title">Planes de Seguridad</h2>
@@ -131,7 +136,7 @@
                                     <li class="plan-feature"><i class="fa fa-check-circle-o"></i><span>Soporte técnico por correo</span></li>
                                     <li class="plan-feature"><i class="fa fa-check-circle-o"></i><span>Actualizaciones mensuales</span></li>
                                 </ul>
-                                <a href="/shop/product/standard-plan" class="plan-button">Comprar ahora</a>
+                                <a href="/shop" class="plan-button">Comprar ahora</a>
                             </div>
                             <div class="plan-card">
                                 <div class="plan-price">$79</div>
@@ -141,11 +146,12 @@
                                     <li class="plan-feature"><i class="fa fa-check-circle-o"></i><span>Soporte técnico 24/7</span></li>
                                     <li class="plan-feature"><i class="fa fa-check-circle-o"></i><span>Actualizaciones en tiempo real</span></li>
                                 </ul>
-                                <a href="/shop/product/premium-plan" class="plan-button">Comprar ahora</a>
+                                <a href="/shop" class="plan-button">Comprar ahora</a>
                             </div>
                         </div>
                     </div>
                 </section>
+
                 <section class="bidding-banner">
                     <div class="container">
                         <div class="bidding-content">
@@ -157,6 +163,7 @@
                         </div>
                     </div>
                 </section>
+
                 <section class="testimonials-section">
                     <div class="container">
                         <h2 class="section-title">Testimonios</h2>
@@ -173,7 +180,7 @@
                     </div>
                 </section>
             </div>
-        </t>
+        </xpath>
     </template>
 
     <!-- PÁGINA DE LICITACIONES -->
@@ -304,18 +311,10 @@
         </t>
     </template>
 
-    <!-- REGISTROS website.page -->
-    <record id="zonaweb_homepage_page" model="website.page">
-        <field name="name">Zonaweb Homepage</field>
-        <field name="url">/</field>
-        <field name="view_id" ref="zonaweb_homepage"/>
-        <field name="website_published">True</field>
-        <field name="is_homepage">True</field>
-    </record>
-
+    <!-- REGISTRO website.page SOLO PARA LICITACIONES -->
     <record id="website_page_bidding" model="website.page">
         <field name="name">Solicitar Licitación</field>
-        <field name="website_published">True</field>
+        <field name="is_published">True</field>
         <field name="website_indexed">True</field>
         <field name="url">/licencias</field>
         <field name="view_id" ref="bidding_page"/>
