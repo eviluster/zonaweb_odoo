@@ -370,4 +370,13 @@
         <field name="website_published">True</field>
         <field name="is_homepage">True</field>
     </record>
+
+    <!-- Página de licitaciones — ref sin prefijo, mismo archivo -->
+    <record id="website_page_bidding" model="website.page">
+        <field name="name">Solicitar Licitación</field>
+        <field name="website_published">True</field>
+        <field name="website_indexed">True</field>
+        <field name="url">/licencias</field>
+        <field name="view_id" ref="bidding_page"/>
+    </record>
 </odoo>
